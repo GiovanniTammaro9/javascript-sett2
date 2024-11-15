@@ -12,6 +12,19 @@ class Automobile {
 
     }
 
+    controllaChilometri() {
+        return this._controllaChilometri();
+    }
+
+    _controllaChilometri() {
+        const soglia = 1000000;
+        if (this.chilometraggio > soglia) {
+            return `Attenzione: il chilometraggio ha superato la soglia di ${soglia} km`;
+        }else {
+            return `il chilometraggio è sotto la soglia di ${soglia}`;
+        }
+    }
+
     mostraEta() {
         return this.#calcolaEta();
     }
@@ -58,12 +71,23 @@ class elettrica extends Automobile {
         this.autonomia = autonomia;
     }
 
+    mostraChilometraggio() {
+        console.log(this._controllaChilometri());
+    }
+
     descrizione() {
         return `${super.descrizione()}, autonomia: ${this.autonomia}km`;
     }
 
+   
+
     
 }
+
+//chilometraggio elettrica
+const autoElettrica2 = new elettrica("fiat", "bravo", 2008, 100000);
+autoElettrica2.mostraChilometraggio();
+console.log(autoElettrica2.mostraChilometraggio());
 
 let fiat = new Automobile("fiat", "bravo", 2008, 75.000, 200);
 console.log(fiat.descrizione());
@@ -79,8 +103,10 @@ console.log(autoElettrica.descrizione());
 
 //eta della macchina
 
-const auto2 =new Automobile("fiat", "bravo", 2008);
+const auto2 =new Automobile("fiat", "bravo", 2008, 120000);
 console.log(`l'età dell'auto è: ${auto2.mostraEta()}`);
+    //controllo chilometraggio
+console.log(auto2.controllaChilometri());
 
 //aggiungo il metodo saluta con la prototype chain
 
