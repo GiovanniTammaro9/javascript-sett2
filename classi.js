@@ -12,6 +12,16 @@ class Automobile {
 
     }
 
+    static confrontaChilometraggio(auto3, auto4) {
+        if (auto3.chilometraggio > auto4.chilometraggio) {
+            return `${auto3.marca} ${auto3.modello} ha un chilometraggio maggiore di ${auto4.marca} ${auto4.modello}`;
+        }else if (auto3.chilometraggio < auto4.chilometraggio) {
+            return `${auto4.marca} ${auto4.modello} ha un chilometraggio maggiore di ${auto3.marca} ${auto3.modello}`;
+        }else {
+            `le due auto hanno chilometraggio uguale`;
+        }
+    }
+
     controllaChilometri() {
         return this._controllaChilometri();
     }
@@ -82,7 +92,14 @@ class elettrica extends Automobile {
    
 
     
+    
 }
+
+//creo due oggetti automobile per vedere chi ha il chilometraggio piu alto
+
+const auto3 = new Automobile("fiat", "bravo", 2008, 90000);
+const auto4 = new Automobile("renault", "clio", 2005, 60000);
+console.log(Automobile.confrontaChilometraggio(auto3,auto4));
 
 //chilometraggio elettrica
 const autoElettrica2 = new elettrica("fiat", "bravo", 2008, 100000);
