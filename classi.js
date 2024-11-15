@@ -89,6 +89,8 @@ class elettrica extends Automobile {
         return `${super.descrizione()}, autonomia: ${this.autonomia}km`;
     }
 
+    
+
    
 
     
@@ -132,9 +134,10 @@ Automobile.prototype.saluta = function() {
 
 };
 
-
+const mercedes = new elettrica("Mercedes", "classeA");
 const auto = new Automobile("fiat", "bravo");
 console.log(auto.saluta());
+console.log(mercedes.saluta());
 
 
 
