@@ -12,7 +12,18 @@ class Automobile {
 
     }
 
-    
+    mostraEta() {
+        return this.#calcolaEta();
+    }
+
+    #calcolaEta() {
+        const annoCorrente = new Date().getFullYear();
+        return annoCorrente - this.anno;
+    }
+
+
+
+
 
     aggiungiChilometri(km) {
         if(km > 0) {
@@ -65,4 +76,24 @@ console.log(autoElettrica.descrizione());
 
 autoElettrica.ricarica(200);
 console.log(autoElettrica.descrizione());
+
+//eta della macchina
+
+const auto2 =new Automobile("fiat", "bravo", 2008);
+console.log(`l'età dell'auto è: ${auto2.mostraEta()}`);
+
+//aggiungo il metodo saluta con la prototype chain
+
+Automobile.prototype.saluta = function() {
+    return `Ciao, sono una ${this.marca} ${this.modello}`;
+
+};
+
+
+const auto = new Automobile("fiat", "bravo");
+console.log(auto.saluta());
+
+
+
+
 
