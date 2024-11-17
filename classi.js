@@ -25,10 +25,20 @@ class Automobile {
         }
     }
         //metodo privato contatore e incremento chiamata
-    accendi() {
-        this.#IncrementaContatore();
-        console.log(`${this.marca} ${this.modello} è stato acceso`);
-    }
+        accendi() {
+            this.#IncrementaContatore();
+            console.log(`${this.marca} ${this.modello} è stato acceso`);
+        }
+
+        //metodo pubblico per aggiungere chilometri
+        aggiungiChilometri(km) {
+            this.#IncrementaContatore();
+            console.log(`aggiunti ${km} chilometri a ${this.marca} ${this.modello}.`);
+        }
+
+
+        
+    
 
     getContatoreChiamata() {
         return this.#contatoreChiamata;
@@ -157,9 +167,14 @@ console.log(auto.saluta());
 console.log(mercedes.saluta());
 
 //contatore chiamata
-const auto5 = new Automobile("fiat", "bravo" );
+const auto5 = new Automobile("fiat", "bravo", 300 );
 auto5.accendi();
 console.log("numero di chiamate al metodo accendi", auto5.getContatoreChiamata());
+
+//aggiungichilometri
+auto5.aggiungiChilometri(100);
+console.log("numero di chiamate al metodo accedi o aggiungichilometri", auto5.getContatoreChiamata());
+
 
 
 
