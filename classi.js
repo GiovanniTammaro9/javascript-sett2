@@ -24,7 +24,21 @@ class Automobile {
             `le due auto hanno chilometraggio uguale`;
         }
     }
+        //metodo privato contatore e incremento chiamata
+    accendi() {
+        this.#IncrementaContatore();
+        console.log(`${this.marca} ${this.modello} è stato acceso`);
+    }
 
+    getContatoreChiamata() {
+        return this.#contatoreChiamata;
+    }
+
+    #IncrementaContatore() {
+        return this.#contatoreChiamata++;
+    }
+
+    
     controllaChilometri() {
         return this._controllaChilometri();
     }
@@ -141,6 +155,11 @@ const mercedes = new elettrica("Mercedes", "classeA");
 const auto = new Automobile("fiat", "bravo");
 console.log(auto.saluta());
 console.log(mercedes.saluta());
+
+//contatore chiamata
+const auto5 = new Automobile("fiat", "bravo" );
+auto5.accendi();
+console.log("numero di chiamate al metodo accendi", auto5.getContatoreChiamata());
 
 
 
