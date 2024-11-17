@@ -5,6 +5,7 @@ class Automobile {
 
     //proprietà privata
     #contatoreChiamata = 0;
+    #contatoreChilometri = 0;
     
 
     constructor(marca, modello, anno, chilometraggio) {
@@ -33,7 +34,12 @@ class Automobile {
         //metodo pubblico per aggiungere chilometri
         aggiungiChilometri(km) {
             this.#IncrementaContatore();
+            this.#contatoreChilometri++;
             console.log(`aggiunti ${km} chilometri a ${this.marca} ${this.modello}.`);
+        }
+
+        mostraContatoreChiamata() {
+            return this.#contatoreChilometri;
         }
 
 
@@ -174,6 +180,7 @@ console.log("numero di chiamate al metodo accendi", auto5.getContatoreChiamata()
 //aggiungichilometri
 auto5.aggiungiChilometri(100);
 console.log("numero di chiamate al metodo accedi o aggiungichilometri", auto5.getContatoreChiamata());
+console.log("numero di volte che è stato chiamato il metodo aggiungiChilometri", auto5.mostraContatoreChiamata());
 
 
 
