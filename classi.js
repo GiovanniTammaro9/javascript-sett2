@@ -2,6 +2,9 @@ class Automobile {
     marca =  ""
     modello = ""
     anno = 0
+
+    //proprietà privata
+    #contatoreChiamata = 0;
     
 
     constructor(marca, modello, anno, chilometraggio) {
