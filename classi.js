@@ -41,9 +41,9 @@ class Automobile {
             console.log(`aggiunti ${km} chilometri a ${this.marca} ${this.modello}.`);
         }
 
-        get chilometraggio() {
-            return this.#chilometraggio;
-        }
+        //get chilometraggio() {
+           // return this.#chilometraggio;
+       // }
 
         mostraContatoreChiamata() {
             return this.#contatoreChilometri;
@@ -129,13 +129,37 @@ class elettrica extends Automobile {
         return `${super.descrizione()}, autonomia: ${this.autonomia}km`;
     }
 
-    
-
-   
-
-    
-    
 }
+
+//sottoclasse camion 
+class Camion extends Automobile {
+    constructor(marca, modello, anno, caricoMassimo) {
+        super(marca, modello, anno);
+        this.caricoMassimo = caricoMassimo;
+    }
+
+    descrizioneCamion() {
+        return `${this.descrizione()} con carico massimo di ${this.caricoMassimo} kg`;
+    }
+
+    //metodo per caricare il camion
+    carica(kg) {
+        if(this.caricoAttuale + kg <= this.caricoMassimo) {
+            this.caricoAttuale += kg; //aggiunge il carico
+            console.log(`caricato ${kg} kg. carico attuale: ${this.caricoAttuale} kg.`);
+        }else {
+            console.log("errore , superato il limite massimo");
+        }
+    }
+}
+
+let mioCamion = new Camion("volvo", "f25", 2020, 150000);
+
+console.log(mioCamion.descrizione());
+console.log(mioCamion.descrizioneCamion());
+//carico il camion
+mioCamion.carica(4000);
+console.log(mioCamion.descrizioneCamion());
 
 //creo due oggetti automobile per vedere chi ha il chilometraggio piu alto
 
